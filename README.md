@@ -94,7 +94,7 @@ discord-nuker/
 ├── requirements.txt
 ├── README.md
 ├── screenshots/
-  ├──── demo.gif
+  ├── demo.gif
   └── mainmenu.png
 ```
 
