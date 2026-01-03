@@ -137,7 +137,7 @@ python nucleer.py
 - `18` → Herkese DM at (MASSDM)
 
 ---
-### Geliştirici / Developer
+Geliştirici / Developer
 leoniofficials
 GitHub: https://github.com/leoniofficials
 ---
