@@ -5,7 +5,7 @@
 # NUCLEER GANER v2.0
 
 **Advanced Discord Nuke & Server Management Tool**  
-**Developed by leoniofficials – 2026**
+**Developed by leoniofficials – 2026**<br>
 *Discord Nuker with Bot Token*<br>
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)
 ![Discord.py](https://img.shields.io/badge/discord.py-2.3%2B-7289DA?logo=discord&logoColor=white)
