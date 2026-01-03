@@ -2,7 +2,7 @@
 
 ![NUCLEER GANER](screenshots/nucleerganer.png)
 
-# NUCLEER GANER v2.0
+# NUCLEER GANER
 
 **Advanced Discord Nuke & Server Management Tool**  
 **Developed by leoniofficials – 2026**<br>
