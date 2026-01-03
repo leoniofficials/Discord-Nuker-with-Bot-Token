@@ -1,6 +1,6 @@
 <div align="center">
 
-screenshots/nucleerganer.png
+![NUCLEER GANER](screenshots/nucleerganer.png)
 
 # NUCLEER GANER v2.0
 
