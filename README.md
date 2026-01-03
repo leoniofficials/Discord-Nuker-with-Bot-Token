@@ -40,7 +40,7 @@
 
 ###  Screenshots
 <div align="center">
-  <img src="https://i.imgur.com/TQLhqZv.png" alt="NUCLEER GANER Full Demo" width="900"/>
+![DEMO](screenshots/mainmenu.png)
 </div>
 
 ###  Installation
