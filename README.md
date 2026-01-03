@@ -43,6 +43,12 @@
   <img src="screenshots/mainmenu.png" alt="DEMO" width="300">
 </div>
 
+### Demo
+
+<div align="">
+  <img src="screenshots/demo.gif" alt="DEMO" width="300">
+</div>
+
 ###  Installation
 
 #### Requirements
