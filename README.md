@@ -136,11 +136,11 @@ python nucleer.py
 - `10` → Tüm üyeleri banla (MASSBAN)
 - `18` → Herkese DM at (MASSDM)
 
----
+
 *Geliştirici / Developer*
 *leoniofficials*
 *GitHub:* *https://github.com/leoniofficials*
----
+
 **🤝 Contributing**
 just a drop star ⛥ 
 ---
