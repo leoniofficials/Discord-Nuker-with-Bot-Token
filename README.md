@@ -1,26 +1,26 @@
 <div align="center">
 
-<img src="https://imgur.com/a/TQLhqZv" width="800" alt="NUCLEER GANER Banner"/>
+<img src="https://i.imgur.com/8ZfZ8Z8.png" width="900" alt="NUCLEER GANER - Discord Nuke Tool"/>
 
 # NUCLEER GANER v2.0
-*Discord Nuker with Bot Token*
 
-**Advanced Discord Server Management & Nuclear Control Panel**  
+**Advanced Discord Nuke & Server Management Tool**  
 **Developed by leoniofficials – 2026**
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)
 ![Discord.py](https://img.shields.io/badge/discord.py-2.3%2B-7289DA?logo=discord&logoColor=white)
 ![Colorama](https://img.shields.io/badge/colorama-supported-green)
-![Status](https://img.shields.io/badge/Status-Active-brightgreen)
-![License](https://img.shields.io/badge/License-Educational-red)
+![Platform](https://img.shields.io/badge/platform-windows%20%7C%20linux%20%7C%20macos-lightgrey)
+![Status](https://img.shields.io/badge/status-active-brightgreen)
+![License](https://img.shields.io/badge/license-educational-red)
 
-> A powerful Discord management tool with a Matrix-style console interface, full control, and over 30 destructive & administrative commands.
+> Powerful Discord server nuke tool with Matrix-style console interface, over 30 destructive/administrative commands, and full control.
 
 </div>
 
 ---
 
-## 🌍 Languages / Diller
+## 🌍 Languages
 
 - **[English](#english-version)**
 - **[Türkçe](#türkçe-versiyon)**
@@ -31,36 +31,39 @@
 
 ### ✨ Features
 
-- **Matrix-Style Boot Animation** – Hacker movie-like startup with binary rain  
-- **Non-blocking Console Input** – Input without interrupting Discord heartbeat  
-- **30+ Powerful Commands** – Ban, Kick, Nuke, Spam, Role Management, Server Modification  
-- **Safety Confirmation System** – Required verification for dangerous operations (Nuke, Mass Ban)  
-- **Webhook & Emoji Spam** – Advanced flooding capabilities  
-- **Auto Server Selection** – Automatically targets if bot is in only one server  
+- **Matrix-Style Boot Animation** – Binary rain & hacker movie startup  
+- **Non-blocking Console Input** – Seamless input without interrupting bot  
+- **30+ Powerful Commands** – Ban, Kick, Channel/Role Nuke, Spam, Mass DM, Server Rename & more  
+- **Professional CLI** – `root@nucleer:~#` style prompt  
+- **Safety Confirmation** – Required codes for dangerous ops (NUKE, MASSBAN)  
+- **Webhook & Emoji Spam** – Advanced flood attacks  
+- **Auto Target Selection** – Locks automatically if bot is in one server  
 
 ### ⚠️ Legal Disclaimer
 
-> **This tool is developed solely for educational purposes and testing on your own servers.**  
-> Unauthorized use on servers you do not own violates **Discord Terms of Service** and may result in **permanent account termination**.  
-> **The developer assumes no responsibility for misuse.**
+> **This tool is for educational purposes only and must be used exclusively on servers you own or have explicit permission to test.**  
+> Unauthorized use violates **Discord Terms of Service** and may result in permanent account termination.  
+> **The developer is not responsible for any misuse.**
 
 ### 📸 Screenshots
 
 <div align="center">
-  <img src="screenshots/startup.png" alt="Startup Screen" width="800"/>
+  <img src="https://i.imgur.com/TQLhqZv.png" alt="NUCLEER GANER Full Demo" width="900"/>
   <br><br>
-  <img src="screenshots/main_menu.png" alt="Main Menu" width="800"/>
+  <img src="https://i.imgur.com/placeholder_startup.png" alt="Startup Screen" width="800"/>
   <br><br>
-  <img src="screenshots/nuke.png" alt="Nuke Operation" width="800"/>
+  <img src="https://i.imgur.com/placeholder_menu.png" alt="Main Menu" width="800"/>
+  <br><br>
+  <img src="https://i.imgur.com/placeholder_nuke.png" alt="Nuke Operation" width="800"/>
 </div>
 
 ### 🛠️ Installation
 
 #### Requirements
 - Python 3.10 or higher
-- Valid Discord **Bot Token** (not user token)
+- Valid **Discord Bot Token** (not user token)
 
-#### 1. Clone the Repository
+#### 1. Clone Repository
 ```bash
-git clone https://github.com/leoniofficials/NUCLEER-GANER
-cd NUCLEER-GANER
+git clone https://github.com/leoniofficials/discord-nuker
+cd discord-nuker
