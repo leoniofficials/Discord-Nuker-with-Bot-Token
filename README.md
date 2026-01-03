@@ -137,13 +137,13 @@ python nucleer.py
 - `18` → Herkese DM at (MASSDM)
 
 
-*Geliştirici / Developer*
-*leoniofficials*
-*GitHub:* *https://github.com/leoniofficials*
+*Geliştirici / Developer*<br>
+*leoniofficials*<br>
+*GitHub:* *https://github.com/leoniofficials*<br>
 
 **🤝 Contributing**
 just a drop star ⛥ 
----
+
 questions?:<br>
 *discord*:**leoniofficials**<br>
 *website*:**sususoftware.xyz**
