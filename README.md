@@ -40,13 +40,13 @@
 
 ###  Screenshots
 <div align="">
-  <img src="screenshots/mainmenu.png" alt="DEMO" width="300">
+  <img src="screenshots/mainmenu.png" alt="DEMO" width="560">
 </div>
 
 ### Demo
 
 <div align="">
-  <img src="screenshots/demo.gif" alt="DEMO" width="300">
+  <img src="screenshots/demo.gif" alt="DEMO" width="560">
 </div>
 
 ###  Installation
