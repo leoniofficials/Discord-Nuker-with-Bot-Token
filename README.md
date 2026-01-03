@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://i.imgur.com/8ZfZ8Z8.png" width="900" alt="NUCLEER GANER - Discord Nuke Tool"/>
+screenshots/nucleerganer.png
 
 # NUCLEER GANER v2.0
 
