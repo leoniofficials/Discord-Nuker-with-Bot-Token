@@ -150,6 +150,6 @@ GitHub: https://github.com/leoniofficials
 
 **just a drop star ⛥ **
 ---
-questions?:
-*discord*:**leoniofficials**
+questions?:<br>
+*discord*:**leoniofficials**<br>
 *website*:**sususoftware.xyz**
