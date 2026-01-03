@@ -39,7 +39,7 @@
 > The developer is **not responsible** for misuse.
 
 ###  Screenshots
-<div align="center">
+<div align="">
   <img src="screenshots/mainmenu.png" alt="DEMO" width="300">
 </div>
 
