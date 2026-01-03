@@ -148,7 +148,8 @@ GitHub: https://github.com/leoniofficials
 **🤝 Contributing**
 **Contributions welcome!****
 
-**Fork the repo**
-**Add features or fixes**
-**Open a Pull Request**
+**just a drop star ⛥ **
 ---
+questions?:
+*discord*:**leoniofficials**
+*website*:**sususoftware.xyz**
