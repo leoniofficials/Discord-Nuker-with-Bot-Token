@@ -29,13 +29,10 @@
 ## English Version
 
 ### ✨ Features
-- Matrix-style boot animation
 - Non-blocking console input
 - 30+ administrative commands
-- Professional CLI (`root@nucleer:~#`)
 - Confirmation system for critical actions
 - Webhook & emoji spam utilities
-- Auto server selection
 
 ### ⚠️ Legal Disclaimer
 > This tool is for **educational purposes only** and must be used **only on servers you own or have explicit permission** to manage.  
@@ -55,13 +52,13 @@
 
 #### 1. Clone Repository
 ```bash
-git clone https://github.com/leoniofficials/discord-nuker
-cd discord-nuker
+git clone https://github.com/leoniofficials/Discord-Nuker-with-Bot-Token
+cd Discord-Nuker-with-Bot-Token
 ```
 
 #### 2. Install Dependencies
 ```bash
-pip install discord.py colorama aiohttp
+pip install -r requirements.txt
 ```
 
 #### 3. Run the Tool
@@ -72,10 +69,7 @@ python nucleer.py
 You will be prompted to securely enter your **Bot Token** at startup.
 
 ### 🎮 Usage
-- Matrix-style boot animation starts
-- Auto-selects server if only one is available
 - Select target if multiple servers are detected
-- Enter command numbers at `root@nucleer:~#`
 - Dangerous actions require confirmation keywords
 
 #### 🔥 Popular Commands
@@ -112,17 +106,15 @@ discord-nuker/
 - Matrix tarzı başlangıç animasyonu
 - Kesintisiz konsol girişi
 - 30+ yönetimsel komut
-- Profesyonel CLI arayüzü
 - Kritik işlemler için onay sistemi
 - Webhook & emoji spam araçları
-- Otomatik sunucu seçimi
 
 ### ⚠️ Yasal Uyarı
 Bu araç **yalnızca eğitim amaçlıdır**.  
 Sadece **sahibi olduğunuz veya izin verilen** sunucularda kullanın.  
 Geliştirici, kötüye kullanımdan sorumlu değildir.
 
-### 🛠️ Kurulum
+### 🛠️ Kurulum;
 
 #### Gereksinimler
 - Python **3.10+**
@@ -130,17 +122,15 @@ Geliştirici, kötüye kullanımdan sorumlu değildir.
 
 #### Kurulum
 ```bash
-git clone https://github.com/leoniofficials/discord-nuker
-cd discord-nuker
-pip install discord.py colorama aiohttp
+git clone https://github.com/leoniofficials/Discord-Nuker-with-Bot-Token
+cd Discord-Nuker-with-Bot-Token
+pip install -r requirements.txt
 python nucleer.py
 ```
 
 ### 🎮 Kullanım
-- Matrix animasyonu ile başlar
 - Tek sunucu varsa otomatik kilitlenir
 - Komutları `root@nucleer:~#` satırından girin
-- Tehlikeli işlemler için doğrulama gerekir
 
 #### Popüler Komutlar
 - `05` → Tüm kanalları sil (NUKE)
@@ -152,3 +142,14 @@ python nucleer.py
 ### 👨‍💻 Geliştirici
 **leoniofficials**  
 GitHub: https://github.com/leoniofficials
+
+##
+**leoniofficials**
+---
+**🤝 Contributing**
+**Contributions welcome!****
+
+**Fork the repo**
+**Add features or fixes**
+**Open a Pull Request**
+---
