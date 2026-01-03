@@ -134,7 +134,7 @@ python nucleer.py
 ```
 
 ###  Kullanım
-- Tek sunucu varsa otomatik kilitlenir
+- Tek sunucu varsa otomatik sunucuya bağlanır.. Bağlanmadıysa 29'dan seçebilirsiniz.
 - Komutları `root@nucleer:~#` satırından girin
 
 #### Popüler Komutlar
