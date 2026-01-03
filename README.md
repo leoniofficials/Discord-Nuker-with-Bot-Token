@@ -40,7 +40,7 @@
 
 ###  Screenshots
 <div align="center">
-![DEMO](screenshots/mainmenu.png)
+  <img src="screenshots/mainmenu.png" alt="DEMO" width="300">
 </div>
 
 ###  Installation
