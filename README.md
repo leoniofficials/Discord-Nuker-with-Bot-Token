@@ -149,4 +149,4 @@ questions?:<br>
 
 ---
 - 🤝 Contributing
--*just a drop star ⛥*
+- *just a drop star ⛥*
