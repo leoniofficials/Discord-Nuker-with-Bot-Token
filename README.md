@@ -38,12 +38,12 @@
 > Unauthorized use violates **Discord Terms of Service**.  
 > The developer is **not responsible** for misuse.
 
-### 📸 Screenshots
+###  Screenshots
 <div align="center">
   <img src="https://i.imgur.com/TQLhqZv.png" alt="NUCLEER GANER Full Demo" width="900"/>
 </div>
 
-### 🛠️ Installation
+###  Installation
 
 #### Requirements
 - Python **3.10+**
@@ -67,11 +67,11 @@ python nucleer.py
 
 You will be prompted to securely enter your **Bot Token** at startup.
 
-### 🎮 Usage
+###  Usage
 - Select target if multiple servers are detected
 - Dangerous actions require confirmation keywords
 
-#### 🔥 Popular Commands
+####  Popular Commands
 | Command | Description |
 |-------:|------------|
 | 05 | Delete all channels (NUKE) |
@@ -81,7 +81,7 @@ You will be prompted to securely enter your **Bot Token** at startup.
 | 18 | DM all members (MASSDM) |
 | 22 | Rename server |
 
-### 📂 Project Structure
+###  Project Structure
 ```text
 discord-nuker/
 ├── nucleer.py
@@ -91,7 +91,7 @@ discord-nuker/
 └── .gitignore
 ```
 
-### 🤝 Contributing
+###  Contributing
 - Fork the repository
 - Create a feature branch
 - Commit changes
@@ -101,19 +101,19 @@ discord-nuker/
 
 ## Türkçe Versiyon
 
-### ✨ Özellikler
+###  Özellikler
 - Matrix tarzı başlangıç animasyonu
 - Kesintisiz konsol girişi
 - 30+ yönetimsel komut
 - Kritik işlemler için onay sistemi
 - Webhook & emoji spam araçları
 
-### ⚠️ Yasal Uyarı
+###  Yasal Uyarı
 Bu araç **yalnızca eğitim amaçlıdır**.  
 Sadece **sahibi olduğunuz veya izin verilen** sunucularda kullanın.  
 Geliştirici, kötüye kullanımdan sorumlu değildir.
 
-### 🛠️ Kurulum;
+###  Kurulum;
 
 #### Gereksinimler
 - Python **3.10+**
@@ -127,7 +127,7 @@ pip install -r requirements.txt
 python nucleer.py
 ```
 
-### 🎮 Kullanım
+###  Kullanım
 - Tek sunucu varsa otomatik kilitlenir
 - Komutları `root@nucleer:~#` satırından girin
 
@@ -138,12 +138,9 @@ python nucleer.py
 
 ---
 
-### 👨‍💻 Geliştirici
+### Geliştirici / Developer
 **leoniofficials**  
 GitHub: https://github.com/leoniofficials
-
-##
-**leoniofficials**
 ---
 **🤝 Contributing**
 just a drop star ⛥ 
@@ -151,4 +148,4 @@ just a drop star ⛥
 questions?:<br>
 *discord*:**leoniofficials**<br>
 *website*:**sususoftware.xyz**
----
+
