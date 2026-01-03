@@ -29,7 +29,6 @@
 ## English Version
 
 ### ✨ Features
-- Non-blocking console input
 - 30+ administrative commands
 - Confirmation system for critical actions
 - Webhook & emoji spam utilities
