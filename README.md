@@ -142,11 +142,11 @@ python nucleer.py
 *GitHub:* *https://github.com/leoniofficials*<br>
 
 
--
+
 questions?:<br>
 *discord*:**leoniofficials**<br>
 *website*:**sususoftware.xyz**
 
-
-### **🤝 Contributing**<br>
-*just a drop star ⛥*
+---
+- 🤝 Contributing
+-*just a drop star ⛥*
