@@ -20,7 +20,7 @@
 
 ---
 
-## 🌍 Languages
+## Languages
 - **[English](#english-version)**
 - **[Türkçe](#türkçe-versiyon)**
 
@@ -28,12 +28,12 @@
 
 ## English Version
 
-### ✨ Features
+### Features
 - 30+ administrative commands
 - Confirmation system for critical actions
 - Webhook & emoji spam utilities
 
-### ⚠️ Legal Disclaimer
+### Legal Disclaimer
 > This tool is for **educational purposes only** and must be used **only on servers you own or have explicit permission** to manage.  
 > Unauthorized use violates **Discord Terms of Service**.  
 > The developer is **not responsible** for misuse.
