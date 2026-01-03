@@ -143,7 +143,7 @@ python nucleer.py
 
 ### **🤝 Contributing**<br>
 just a drop star ⛥ 
----
+-
 questions?:<br>
 *discord*:**leoniofficials**<br>
 *website*:**sususoftware.xyz**
