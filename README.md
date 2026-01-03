@@ -146,10 +146,9 @@ GitHub: https://github.com/leoniofficials
 **leoniofficials**
 ---
 **🤝 Contributing**
-**Contributions welcome!****
-
-**just a drop star ⛥ **
+just a drop star ⛥ 
 ---
 questions?:<br>
 *discord*:**leoniofficials**<br>
 *website*:**sususoftware.xyz**
+---
