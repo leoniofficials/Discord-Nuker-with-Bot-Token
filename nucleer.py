@@ -1,4 +1,5 @@
 # coded by github.com/leoniofficials
+# NUCLEER GANER v2.0 - FULL CODE WITH DISCORD LIVE VIEWER
 # coded by github.com/leoniofficials
 import discord
 from discord.ext import commands
@@ -10,6 +11,7 @@ import time
 import random
 import aiohttp
 from concurrent.futures import ThreadPoolExecutor
+from datetime import datetime
 
 init(autoreset=True)
 # coded by github.com/leoniofficials
@@ -18,7 +20,7 @@ executor = ThreadPoolExecutor(max_workers=1)
 
 # coded by github.com/leoniofficials
 async def async_input(prompt):
-    """Non-blocking input that doesn't block Discord heartbeat"""
+
     loop = asyncio.get_event_loop()
     return await loop.run_in_executor(executor, input, prompt)
 # coded by github.com/leoniofficials
@@ -103,14 +105,462 @@ def print_header():
         time.sleep(0.2)
     print()
 # coded by github.com/leoniofficials
+
+# ═══════════════════════════════════════════════════════════════
+# DISCORD LIVE VIEWER - NEW FEATURE
+# coded by github.com/leoniofficials
+# ═══════════════════════════════════════════════════════════════
+
+async def discord_live_viewer():
+    if not guild:
+        print(f"{Fore.RED}[✗] No target selected{Style.RESET_ALL}")
+        return
+    
+    os.system('cls' if os.name == 'nt' else 'clear')
+    
+    # Header
+    print(f"{Fore.RED}{Style.BRIGHT}╔{'═'*78}╗")
+    print(f"║{' '*25}{Fore.MAGENTA}DISCORD LIVE VIEWER{Fore.RED}{' '*34}║")
+    print(f"║{' '*20}{Fore.WHITE}Server: {guild.name[:45]:<45}{Fore.RED}║")
+    print(f"╚{'═'*78}╝{Style.RESET_ALL}\n")
+    
+    print(f"{Fore.YELLOW}[!] Initializing live monitoring system...{Style.RESET_ALL}")
+    print(f"{Fore.CYAN}[→] Scanning all accessible channels...{Style.RESET_ALL}\n")
+    
+    all_messages = []
+    total_channels = len(guild.text_channels)
+    scanned = 0
+    
+
+    for channel in guild.text_channels:
+        try:
+            scanned += 1
+            print(f"{Fore.CYAN}[{scanned}/{total_channels}] {Fore.WHITE}Scanning #{channel.name[:40]:<40}{Style.RESET_ALL}", end='\r')
+            
+       
+            message_count = 0
+            async for message in channel.history(limit=None, oldest_first=False):
+                all_messages.append({
+                    'channel': channel.name,
+                    'channel_id': channel.id,
+                    'author': str(message.author),
+                    'author_id': message.author.id,
+                    'author_bot': message.author.bot,
+                    'content': message.content if message.content else "[Empty/Embed]",
+                    'timestamp': message.created_at,
+                    'message_id': message.id,
+                    'attachments': len(message.attachments),
+                    'embeds': len(message.embeds),
+                    'reactions': len(message.reactions),
+                    'mentions': len(message.mentions),
+                    'pinned': message.pinned,
+                    'edited': message.edited_at is not None
+                })
+                message_count += 1
+            
+            await asyncio.sleep(0.3)  
+            
+        except discord.Forbidden:
+            print(f"{Fore.RED}[✗] Access denied to #{channel.name}{' '*50}{Style.RESET_ALL}")
+        except Exception as e:
+            print(f"{Fore.YELLOW}[!] Error in #{channel.name}: {str(e)[:40]}{' '*30}{Style.RESET_ALL}")
+    
+    print(f"\n{Fore.GREEN}[✓] Scan complete! Total messages collected: {len(all_messages)}{Style.RESET_ALL}\n")
+    
+
+    all_messages.sort(key=lambda x: x['timestamp'], reverse=True)
+    
+
+    while True:
+        os.system('cls' if os.name == 'nt' else 'clear')
+        
+        print(f"{Fore.RED}{Style.BRIGHT}╔{'═'*78}╗")
+        print(f"║{' '*25}{Fore.MAGENTA}MESSAGE DATABASE{Fore.RED}{' '*37}║")
+        print(f"╚{'═'*78}╝{Style.RESET_ALL}\n")
+        
+        print(f"{Fore.GREEN}╔{'═'*78}╗")
+        print(f"║ {Fore.CYAN}Server: {Fore.WHITE}{guild.name[:50]:<50}{Fore.GREEN}       ║")
+        print(f"║ {Fore.CYAN}Total Messages: {Fore.YELLOW}{len(all_messages):<30}{Fore.GREEN}                    ║")
+        print(f"║ {Fore.CYAN}Total Channels: {Fore.YELLOW}{total_channels:<30}{Fore.GREEN}                    ║")
+        print(f"╚{'═'*78}╝{Style.RESET_ALL}\n")
+        
+        print(f"{Fore.CYAN}╔{'═'*78}╗")
+        print(f"║ {Fore.MAGENTA}[1]{Fore.WHITE} View All Messages (Chronological){' '*41}║")
+        print(f"║ {Fore.MAGENTA}[2]{Fore.WHITE} View by Channel{' '*57}║")
+        print(f"║ {Fore.MAGENTA}[3]{Fore.WHITE} Search Messages{' '*57}║")
+        print(f"║ {Fore.MAGENTA}[4]{Fore.WHITE} View by User{' '*60}║")
+        print(f"║ {Fore.MAGENTA}[5]{Fore.WHITE} Statistics & Analytics{' '*50}║")
+        print(f"║ {Fore.MAGENTA}[6]{Fore.WHITE} Export Messages{' '*57}║")
+        print(f"║ {Fore.MAGENTA}[7]{Fore.WHITE} Filter Options{' '*58}║")
+        print(f"║ {Fore.MAGENTA}[8]{Fore.WHITE} Live Monitor (Real-time){' '*48}║")
+        print(f"║ {Fore.RED}[0]{Fore.WHITE} Return to Main Menu{' '*52}║")
+        print(f"╚{'═'*78}╝{Style.RESET_ALL}\n")
+        
+        choice = await async_input(f"{Fore.GREEN}live@{Fore.RED}viewer{Fore.WHITE}:{Fore.CYAN}~{Fore.WHITE}# {Style.RESET_ALL}")
+        
+        if choice == "1":
+            await view_all_messages(all_messages)
+        elif choice == "2":
+            await view_by_channel(all_messages, guild)
+        elif choice == "3":
+            await search_messages(all_messages)
+        elif choice == "4":
+            await view_by_user(all_messages)
+        elif choice == "5":
+            await show_statistics(all_messages, guild)
+        elif choice == "6":
+            await export_messages(all_messages)
+        elif choice == "7":
+            await filter_messages(all_messages)
+        elif choice == "8":
+            await live_monitor(guild)
+        elif choice == "0":
+            break
+        else:
+            print(f"{Fore.RED}[✗] Invalid option{Style.RESET_ALL}")
+            await asyncio.sleep(1)
+
+# coded by github.com/leoniofficials
+async def view_all_messages(messages):
+
+    os.system('cls' if os.name == 'nt' else 'clear')
+    
+    print(f"{Fore.MAGENTA}╔{'═'*78}╗")
+    print(f"║{' '*30}ALL MESSAGES{' '*36}║")
+    print(f"╚{'═'*78}╝{Style.RESET_ALL}\n")
+    
+    page_size = 20
+    current_page = 0
+    total_pages = (len(messages) - 1) // page_size + 1
+    
+    while True:
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print(f"{Fore.MAGENTA}╔{'═'*78}╗")
+        print(f"║{' '*25}MESSAGE VIEWER{' '*40}║")
+        print(f"║ {Fore.CYAN}Page {current_page + 1}/{total_pages}{' '*60}{Fore.MAGENTA}║")
+        print(f"╚{'═'*78}╝{Style.RESET_ALL}\n")
+        
+        start_idx = current_page * page_size
+        end_idx = min(start_idx + page_size, len(messages))
+        
+        for i in range(start_idx, end_idx):
+            msg = messages[i]
+            timestamp = msg['timestamp'].strftime('%Y-%m-%d %H:%M:%S')
+            author_color = Fore.RED if msg['author_bot'] else Fore.GREEN
+            
+            print(f"{Fore.CYAN}[{i+1:04d}] {Fore.YELLOW}{timestamp}")
+            print(f"  {Fore.WHITE}Channel: {Fore.CYAN}#{msg['channel']}")
+            print(f"  {Fore.WHITE}Author: {author_color}{msg['author']}{Fore.WHITE} (ID: {msg['author_id']})")
+            
+            content_preview = msg['content'][:100] + "..." if len(msg['content']) > 100 else msg['content']
+            print(f"  {Fore.WHITE}Message: {Fore.MAGENTA}{content_preview}")
+            
+            extras = []
+            if msg['attachments'] > 0:
+                extras.append(f"{Fore.YELLOW}📎{msg['attachments']}")
+            if msg['embeds'] > 0:
+                extras.append(f"{Fore.CYAN}📰{msg['embeds']}")
+            if msg['reactions'] > 0:
+                extras.append(f"{Fore.RED}❤{msg['reactions']}")
+            if msg['pinned']:
+                extras.append(f"{Fore.GREEN}📌Pinned")
+            if msg['edited']:
+                extras.append(f"{Fore.YELLOW}✏Edited")
+            
+            if extras:
+                print(f"  {Fore.WHITE}Extras: {' '.join(extras)}")
+            
+            print(f"{Fore.RED}{'─'*78}{Style.RESET_ALL}")
+        
+        print(f"\n{Fore.CYAN}[N]ext | [P]revious | [J]ump to page | [B]ack{Style.RESET_ALL}")
+        nav = await async_input(f"{Fore.GREEN}> {Style.RESET_ALL}")
+        
+        if nav.lower() == 'n' and current_page < total_pages - 1:
+            current_page += 1
+        elif nav.lower() == 'p' and current_page > 0:
+            current_page -= 1
+        elif nav.lower() == 'j':
+            try:
+                page_num = await async_input(f"{Fore.WHITE}Jump to page (1-{total_pages}): {Style.RESET_ALL}")
+                page = int(page_num) - 1
+                if 0 <= page < total_pages:
+                    current_page = page
+            except:
+                pass
+        elif nav.lower() == 'b':
+            break
+
+# coded by github.com/leoniofficials
+async def view_by_channel(messages, guild):
+
+    os.system('cls' if os.name == 'nt' else 'clear')
+    
+    print(f"{Fore.CYAN}╔{'═'*78}╗")
+    print(f"║{' '*28}CHANNEL LIST{' '*38}║")
+    print(f"╚{'═'*78}╝{Style.RESET_ALL}\n")
+    
+   
+    channels_dict = {}
+    for msg in messages:
+        ch_name = msg['channel']
+        if ch_name not in channels_dict:
+            channels_dict[ch_name] = []
+        channels_dict[ch_name].append(msg)
+    
+    # Kanal listesi göster
+    sorted_channels = sorted(channels_dict.items(), key=lambda x: len(x[1]), reverse=True)
+    
+    for i, (ch_name, ch_messages) in enumerate(sorted_channels, 1):
+        print(f"{Fore.GREEN}[{i:02d}]{Fore.WHITE} #{ch_name:<40} {Fore.YELLOW}({len(ch_messages)} messages){Style.RESET_ALL}")
+    
+    print(f"\n{Fore.CYAN}[0] Back to menu{Style.RESET_ALL}")
+    
+    try:
+        choice = await async_input(f"\n{Fore.GREEN}Select channel number > {Style.RESET_ALL}")
+        ch_idx = int(choice) - 1
+        
+        if 0 <= ch_idx < len(sorted_channels):
+            channel_name, channel_messages = sorted_channels[ch_idx]
+            await view_all_messages(channel_messages)
+    except:
+        pass
+
+# coded by github.com/leoniofficials
+async def search_messages(messages):
+    """Mesaj ara"""
+    os.system('cls' if os.name == 'nt' else 'clear')
+    
+    print(f"{Fore.YELLOW}╔{'═'*78}╗")
+    print(f"║{' '*30}SEARCH MESSAGES{' '*34}║")
+    print(f"╚{'═'*78}╝{Style.RESET_ALL}\n")
+    
+    query = await async_input(f"{Fore.WHITE}Enter search query: {Style.RESET_ALL}")
+    
+    if not query:
+        return
+    
+    results = [msg for msg in messages if query.lower() in msg['content'].lower()]
+    
+    print(f"\n{Fore.GREEN}[✓] Found {len(results)} results{Style.RESET_ALL}\n")
+    await asyncio.sleep(1)
+    
+    if results:
+        await view_all_messages(results)
+    else:
+        await async_input(f"{Fore.RED}No results found. Press ENTER...{Style.RESET_ALL}")
+
+# coded by github.com/leoniofficials
+async def view_by_user(messages):
+    
+    os.system('cls' if os.name == 'nt' else 'clear')
+    
+    print(f"{Fore.MAGENTA}╔{'═'*78}╗")
+    print(f"║{' '*30}USER MESSAGES{' '*35}║")
+    print(f"╚{'═'*78}╝{Style.RESET_ALL}\n")
+    
+   
+    users_dict = {}
+    for msg in messages:
+        author = msg['author']
+        if author not in users_dict:
+            users_dict[author] = []
+        users_dict[author].append(msg)
+    
+    sorted_users = sorted(users_dict.items(), key=lambda x: len(x[1]), reverse=True)
+    
+    # Top 30 kullanıcı göster
+    for i, (user, user_messages) in enumerate(sorted_users[:30], 1):
+        user_color = Fore.RED if user_messages[0]['author_bot'] else Fore.GREEN
+        print(f"{Fore.CYAN}[{i:02d}]{user_color} {user:<50} {Fore.YELLOW}({len(user_messages)} messages){Style.RESET_ALL}")
+    
+    print(f"\n{Fore.CYAN}[0] Back{Style.RESET_ALL}")
+    
+    try:
+        choice = await async_input(f"\n{Fore.GREEN}Select user > {Style.RESET_ALL}")
+        user_idx = int(choice) - 1
+        
+        if 0 <= user_idx < len(sorted_users[:30]):
+            user_name, user_messages = sorted_users[user_idx]
+            await view_all_messages(user_messages)
+    except:
+        pass
+
+# coded by github.com/leoniofficials
+async def show_statistics(messages, guild):
+
+    os.system('cls' if os.name == 'nt' else 'clear')
+    
+    print(f"{Fore.RED}{Style.BRIGHT}╔{'═'*78}╗")
+    print(f"║{' '*25}SERVER STATISTICS{' '*36}║")
+    print(f"╚{'═'*78}╝{Style.RESET_ALL}\n")
+    
+  
+    total_messages = len(messages)
+    total_attachments = sum(msg['attachments'] for msg in messages)
+    total_embeds = sum(msg['embeds'] for msg in messages)
+    total_reactions = sum(msg['reactions'] for msg in messages)
+    pinned_count = sum(1 for msg in messages if msg['pinned'])
+    edited_count = sum(1 for msg in messages if msg['edited'])
+    
+
+    users_dict = {}
+    bot_messages = 0
+    for msg in messages:
+        if msg['author_bot']:
+            bot_messages += 1
+        author = msg['author']
+        users_dict[author] = users_dict.get(author, 0) + 1
+    
+    top_users = sorted(users_dict.items(), key=lambda x: x[1], reverse=True)[:10]
+    
+   
+    channels_dict = {}
+    for msg in messages:
+        ch = msg['channel']
+        channels_dict[ch] = channels_dict.get(ch, 0) + 1
+    
+    top_channels = sorted(channels_dict.items(), key=lambda x: x[1], reverse=True)[:10]
+    
+    print(f"{Fore.YELLOW}[●] GENERAL STATISTICS{Style.RESET_ALL}")
+    print(f"  {Fore.CYAN}Total Messages: {Fore.WHITE}{total_messages}")
+    print(f"  {Fore.CYAN}Bot Messages: {Fore.WHITE}{bot_messages}")
+    print(f"  {Fore.CYAN}Human Messages: {Fore.WHITE}{total_messages - bot_messages}")
+    print(f"  {Fore.CYAN}Total Attachments: {Fore.WHITE}{total_attachments}")
+    print(f"  {Fore.CYAN}Total Embeds: {Fore.WHITE}{total_embeds}")
+    print(f"  {Fore.CYAN}Total Reactions: {Fore.WHITE}{total_reactions}")
+    print(f"  {Fore.CYAN}Pinned Messages: {Fore.WHITE}{pinned_count}")
+    print(f"  {Fore.CYAN}Edited Messages: {Fore.WHITE}{edited_count}")
+    
+    print(f"\n{Fore.YELLOW}[●] TOP 10 MOST ACTIVE USERS{Style.RESET_ALL}")
+    for i, (user, count) in enumerate(top_users, 1):
+        print(f"  {Fore.GREEN}{i:02d}.{Fore.WHITE} {user:<40} {Fore.YELLOW}{count} messages")
+    
+    print(f"\n{Fore.YELLOW}[●] TOP 10 MOST ACTIVE CHANNELS{Style.RESET_ALL}")
+    for i, (channel, count) in enumerate(top_channels, 1):
+        print(f"  {Fore.GREEN}{i:02d}.{Fore.WHITE} #{channel:<40} {Fore.YELLOW}{count} messages")
+    
+    await async_input(f"\n{Fore.CYAN}Press ENTER to continue...{Style.RESET_ALL}")
+
+# coded by github.com/leoniofficials
+async def export_messages(messages):
+
+    os.system('cls' if os.name == 'nt' else 'clear')
+    
+    print(f"{Fore.CYAN}[→] Exporting messages...{Style.RESET_ALL}\n")
+    
+    filename = f"messages_export_{int(time.time())}.txt"
+    
+    try:
+        with open(filename, 'w', encoding='utf-8') as f:
+            f.write("="*80 + "\n")
+            f.write(" NUCLEER GANER - MESSAGE EXPORT\n")
+            f.write(" coded by github.com/leoniofficials\n")
+            f.write("="*80 + "\n\n")
+            
+            for i, msg in enumerate(messages, 1):
+                f.write(f"[{i:05d}] {msg['timestamp'].strftime('%Y-%m-%d %H:%M:%S')}\n")
+                f.write(f"Channel: #{msg['channel']}\n")
+                f.write(f"Author: {msg['author']} (ID: {msg['author_id']})\n")
+                f.write(f"Message: {msg['content']}\n")
+                
+                if msg['attachments'] > 0:
+                    f.write(f"Attachments: {msg['attachments']}\n")
+                if msg['embeds'] > 0:
+                    f.write(f"Embeds: {msg['embeds']}\n")
+                if msg['reactions'] > 0:
+                    f.write(f"Reactions: {msg['reactions']}\n")
+                
+                f.write("-"*80 + "\n\n")
+        
+        print(f"{Fore.GREEN}[✓] Export successful!{Style.RESET_ALL}")
+        print(f"{Fore.WHITE}File saved: {Fore.YELLOW}{filename}{Style.RESET_ALL}")
+    except Exception as e:
+        print(f"{Fore.RED}[✗] Export failed: {e}{Style.RESET_ALL}")
+    
+    await async_input(f"\n{Fore.CYAN}Press ENTER to continue...{Style.RESET_ALL}")
+
+# coded by github.com/leoniofficials
+async def filter_messages(messages):
+
+    os.system('cls' if os.name == 'nt' else 'clear')
+    
+    print(f"{Fore.YELLOW}╔{'═'*78}╗")
+    print(f"║{' '*30}FILTER OPTIONS{' '*35}║")
+    print(f"╚{'═'*78}╝{Style.RESET_ALL}\n")
+    
+    print(f"{Fore.CYAN}[1]{Fore.WHITE} Show only bot messages")
+    print(f"{Fore.CYAN}[2]{Fore.WHITE} Show only human messages")
+    print(f"{Fore.CYAN}[3]{Fore.WHITE} Show only messages with attachments")
+    print(f"{Fore.CYAN}[4]{Fore.WHITE} Show only pinned messages")
+    print(f"{Fore.CYAN}[5]{Fore.WHITE} Show only edited messages")
+    print(f"{Fore.CYAN}[0]{Fore.WHITE} Back")
+    
+    choice = await async_input(f"\n{Fore.GREEN}Select filter > {Style.RESET_ALL}")
+    
+    filtered = messages
+    
+    if choice == "1":
+        filtered = [msg for msg in messages if msg['author_bot']]
+    elif choice == "2":
+        filtered = [msg for msg in messages if not msg['author_bot']]
+    elif choice == "3":
+        filtered = [msg for msg in messages if msg['attachments'] > 0]
+    elif choice == "4":
+        filtered = [msg for msg in messages if msg['pinned']]
+    elif choice == "5":
+        filtered = [msg for msg in messages if msg['edited']]
+    elif choice == "0":
+        return
+    
+    print(f"\n{Fore.GREEN}[✓] Filtered: {len(filtered)} messages{Style.RESET_ALL}")
+    await asyncio.sleep(1)
+    
+    if filtered:
+        await view_all_messages(filtered)
+
+# coded by github.com/leoniofficials
+async def live_monitor(guild):
+
+    os.system('cls' if os.name == 'nt' else 'clear')
+    
+    print(f"{Fore.RED}{Style.BRIGHT}╔{'═'*78}╗")
+    print(f"║{' '*28}LIVE MONITOR{' '*38}║")
+    print(f"╚{'═'*78}╝{Style.RESET_ALL}\n")
+    
+    print(f"{Fore.YELLOW}[!] Starting real-time message monitor...{Style.RESET_ALL}")
+    print(f"{Fore.CYAN}[→] Press Ctrl+C to stop{Style.RESET_ALL}\n")
+    
+    @bot.event
+    async def on_message_monitor(message):
+        if message.guild == guild:
+            timestamp = datetime.now().strftime('%H:%M:%S')
+            author_color = Fore.RED if message.author.bot else Fore.GREEN
+            
+            print(f"{Fore.YELLOW}[{timestamp}]{Fore.WHITE} #{message.channel.name}")
+            print(f"  {author_color}{message.author}{Fore.WHITE}: {message.content[:100]}")
+            print(f"{Fore.RED}{'─'*78}{Style.RESET_ALL}")
+    
+    try:
+        bot.add_listener(on_message_monitor, 'on_message')
+        await async_input(f"{Fore.GREEN}Monitoring... Press ENTER to stop{Style.RESET_ALL}")
+        bot.remove_listener(on_message_monitor, 'on_message')
+    except KeyboardInterrupt:
+        bot.remove_listener(on_message_monitor, 'on_message')
+        print(f"\n{Fore.RED}[✗] Monitor stopped{Style.RESET_ALL}")
+
+# ═══════════════════════════════════════════════════════════════
+# MAIN MENU (UPDATED WITH LIVE VIEWER)
+# coded by github.com/leoniofficials
+# ═══════════════════════════════════════════════════════════════
+
 async def main_menu():
     global guild
     os.system('cls' if os.name == 'nt' else 'clear')
-    # coded by github.com/leoniofficials
+
     print(f"{Fore.RED}{Style.BRIGHT}╔{'═'*70}╗")
     print(f"║{' '*20}{Fore.MAGENTA}NUCLEER GANER{Fore.RED}{' '*37}║")
     print(f"╚{'═'*70}╝{Style.RESET_ALL}\n")
-    # coded by github.com/leoniofficials
+ 
     if guild:
         print(f"{Fore.GREEN}╔{'═'*70}╗")
         print(f"║ {Fore.CYAN}[{Fore.GREEN}●{Fore.CYAN} CONNECTED{Fore.CYAN}] {Fore.WHITE}TARGET: {Fore.YELLOW}{guild.name[:35]:<35} {Fore.GREEN}║")
@@ -155,6 +605,7 @@ async def main_menu():
         ("28", "INFO", "Server Intel", Fore.CYAN),
         ("29", "SWITCH", "Switch Target", Fore.GREEN),
         ("30", "EXIT", "☢ DISCONNECT & EXIT", Fore.RED + Style.BRIGHT),
+        ("31", "LIVE", "📡 DISCORD LIVE VIEWER", Fore.MAGENTA + Style.BRIGHT),
     ]
     # coded by github.com/leoniofficials
     for num, code, desc, color in attack_vectors:
@@ -174,7 +625,7 @@ async def main_menu():
         "18": mass_dm, "19": create_role, "20": role_color_change, "21": create_category,
         "22": delete_all_categories, "23": change_banner, "24": set_afk_channel, "25": set_rules_channel,
         "26": set_modlog_channel, "27": boost_info, "28": detailed_server_info, "29": select_guild,
-        "30": exit_program
+        "30": exit_program, "31": discord_live_viewer
     }
 
     if choice in actions:
@@ -184,6 +635,11 @@ async def main_menu():
 
     await async_input(f"\n{Fore.YELLOW}[!] {Fore.WHITE}Press ENTER to return to command center...{Style.RESET_ALL}")
     await main_menu()
+
+# ═══════════════════════════════════════════════════════════════
+# ORIGINAL FUNCTIONS (UNCHANGED)
+# coded by github.com/leoniofficials
+# ═══════════════════════════════════════════════════════════════
 
 def exit_program():
     print(f"\n{Fore.RED}╔{'═'*50}╗")
@@ -495,6 +951,10 @@ async def mass_nickname():
         return
     nickname = await async_input(f"{Fore.WHITE}New nickname for all: {Style.RESET_ALL}")
     print(f"{Fore.YELLOW}[!] Starting mass nickname change...{Style.RESET_ALL}")
+    changed = 0
+    for member in guild.members:
+        if member != guild.owner and member != bot.user:
+            print(f"{Fore.YELLOW}[!] Starting mass nickname change...{Style.RESET_ALL}")
     changed = 0
     for member in guild.members:
         if member != guild.owner and member != bot.user:
